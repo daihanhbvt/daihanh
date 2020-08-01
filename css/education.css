@@ -1,0 +1,169 @@
+.education {
+    font-family: Brandon, sans-serif;
+}
+
+.education-container {
+    position: relative;
+    /*  */
+    display: flex;
+}
+
+.education-year {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    /*  */
+    width: 50%;
+    height: 200px;
+    border: 2px solid white;
+    /*  */
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.education-des {
+    position: absolute;
+    left: 45%;
+    z-index: 11;
+    /*  */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /*  */
+    width: 70%;
+    height: 200px;
+}
+
+.school {
+    padding: 5px 0;
+    /*  */
+    background: var(--black);
+}
+
+.animate.loading:before {
+    background-color: var(--white);
+}
+
+.school-name {
+    position: relative;
+    /*  */
+    color: var(--black);
+    /*  */
+    margin: 5px;
+    /*  */
+    font-size: 30px;
+    font-weight: bold;
+}
+
+div.school-name.animate.loading.animation::after {
+    background-color: var(--blue);
+}
+
+div.school-name.animate.loading.animation {
+    animation: changeBlackToBlue 6s ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
+
+.school-address {
+    position: relative;
+    /*  */
+    margin: 5px;
+    /*  */
+    font-size: 20px;
+}
+
+@keyframes changeBlackToBlue {
+    100% {
+        color: var(--blue);
+    }
+}
+
+
+/* Response */
+
+@media only screen and (min-width: 913px) and (max-width: 1190px) {
+    .education-year {
+        width: 50%;
+        height: 190px;
+        border: 1px solid white;
+        /*  */
+        font-size: 65px;
+    }
+    .education-des {
+        left: 40%;
+        /*  */
+        width: 58%;
+        height: 190px;
+    }
+    .school-name {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 912px) {
+    .education-year {
+        width: 50%;
+        height: 180px;
+        border: 1px solid white;
+        /*  */
+        font-size: 65px;
+    }
+    .education-des {
+        left: 40%;
+        /*  */
+        width: 61%;
+        height: 180px;
+    }
+    .school-name {
+        font-size: 28px;
+    }
+    .school-address {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .education-year {
+        width: 50%;
+        height: 120px;
+        border: 1px solid white;
+        /*  */
+        font-size: 45px;
+    }
+    .education-des {
+        left: 38%;
+        /*  */
+        width: 61%;
+        height: 120px;
+    }
+    .school-name {
+        font-size: 25px;
+    }
+    .school-address {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 240px) and (max-width: 575px) {
+    .education-year {
+        width: 50%;
+        height: 110px;
+        border: 1px solid white;
+        /*  */
+        font-size: 27px;
+    }
+    .education-des {
+        left: 38%;
+        /*  */
+        width: 61%;
+        height: 110px;
+    }
+    .school-name {
+        font-size: 14px;
+    }
+    .school-address {
+        font-size: 10px;
+    }
+}

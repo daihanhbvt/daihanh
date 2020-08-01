@@ -1,0 +1,36 @@
+.scroll-to-top.none {
+    display: none;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 80px;
+    right: 3%;
+    z-index: 10000000000000;
+    overflow: hidden;
+    /*  */
+    display: block;
+    /*  */
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+}
+
+.scroll-to-top:focus {
+    border: none;
+    border-radius: 50%;
+    outline: none;
+}
+
+#scroll-to-top img {
+    width: 50px;
+    height: 50px;
+}
+
+@media only screen and (min-width: 240px) and (max-width: 1199px) {
+    .scroll-to-top {
+        right: 5%;
+    }
+}

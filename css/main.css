@@ -1,0 +1,383 @@
+* {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    width: 100%;
+    background: #000;
+    overflow-x: hidden;
+}
+
+:root {
+    --blue: #00bfff;
+    --yellow: #ffcf10;
+    --black: #000;
+    --gray: #333;
+    --white: #fff;
+    /*  */
+    --font-size: 20px;
+}
+
+section {
+    padding: 78px 0 0 0;
+}
+
+h3 {
+    color: #fff;
+}
+
+a {
+    outline: none;
+}
+
+.open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    /*  */
+    pointer-events: none;
+}
+
+.open .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*  */
+    width: 100%;
+    height: 100%;
+    /*  */
+    transform-origin: top;
+    animation: open 1s ease-in-out forwards;
+}
+
+.open .layer:nth-child(1) {
+    z-index: 3;
+    background: var(--yellow);
+}
+
+.open .layer:nth-child(2) {
+    z-index: 2;
+    animation-delay: 0.5s;
+    background: greenyellow;
+}
+
+.open .layer:nth-child(3) {
+    z-index: 1;
+    animation-delay: 1s;
+    background: #03a9f4;
+}
+
+
+/* Menu */
+
+header {
+    position: relative;
+    /*  */
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    /*  */
+    background: var(--black);
+}
+
+header.sticky {
+    position: fixed;
+    z-index: 10000000;
+    /*  */
+    width: 100%;
+    height: min-content;
+    margin: 0;
+}
+
+header .logo {
+    height: 60px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    float: left;
+    /*  */
+    color: var(--white);
+    /*  */
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 60px;
+    text-align: center;
+    text-decoration: none;
+}
+
+nav {
+    float: right;
+}
+
+.clearfix {
+    clear: both;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+    /*  */
+    margin: 10px 0;
+    padding: 10px 20px;
+    /*  */
+    color: var(--white);
+    /*  */
+    font-size: 20px;
+    font-weight: bold;
+    /*  */
+    text-decoration: none;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background: var(--yellow);
+    /*  */
+    transition: 0.5s;
+}
+
+
+/* Menu */
+
+.animation {
+    animation: changeBlackToWhite 6s ease-in-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+.animation::after {
+    content: "";
+    /*  */
+    position: absolute;
+    bottom: 0;
+    /*  */
+    width: 0;
+    height: 100%;
+    /*  */
+    background-color: #ffcf10;
+    /*  */
+    transform-origin: left;
+    transform: scaleX(1);
+    /*  */
+    animation: loading 4s ease-in-out;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 1;
+    transition: 0.5s;
+}
+
+.container {
+    position: relative;
+    /*  */
+    width: 100%;
+    padding: 4%;
+}
+
+.title {
+    position: relative;
+    /*  */
+    width: max-content;
+    height: auto;
+    margin-bottom: 10px;
+    /*  */
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Poppins, sans-serif;
+    text-decoration: line-through;
+}
+
+div.title.animate.animation.black {
+    animation: changeBlackToYellow 6s ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
+
+
+/* Animation */
+
+@keyframes open {
+    0% {
+        transform: scaleY(1);
+    }
+    100% {
+        transform: scaleY(0);
+    }
+}
+
+@keyframes loading {
+    0% {
+        left: 0;
+        right: auto;
+        /*  */
+        width: 0;
+    }
+    35% {
+        width: 100%;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        right: 0;
+        left: auto;
+        /*  */
+        width: 0;
+        /*  */
+        opacity: 1;
+        animation-direction: reverse;
+    }
+}
+
+@keyframes changeBlackToWhite {
+    100% {
+        color: var(--white);
+    }
+}
+
+@keyframes changeBlackToYellow {
+    0% {
+        color: var(--black);
+    }
+    100% {
+        color: var(--yellow);
+    }
+}
+
+
+/* Animation */
+
+
+/* Responsive */
+
+@media only screen and (min-width: 1001px) and (max-width: 1199px) {
+    header {
+        margin: 20px;
+    }
+}
+
+@media only screen and (min-width: 868px) and (max-width: 1000px) {
+    header {
+        margin: 0 20px;
+    }
+    nav ul li a {
+        font-size: 19px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 867px) {
+    header .logo {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+        /*  */
+        width: 40px;
+        margin: 10px;
+        float: right;
+        /*  */
+        color: var(--white);
+        /*  */
+        font-size: 30px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .menu-toggle::before {
+        content: "\f0c9";
+        /*  */
+        line-height: 40px;
+        font-family: fontAwesome;
+        /*  */
+        transition: 0.1s;
+    }
+    .menu-toggle:hover {
+        transform: scale(1.1);
+    }
+    .menu-toggle.active::before {
+        content: "\f00d";
+    }
+    nav {
+        display: none;
+    }
+    nav.active {
+        display: block;
+        /*  */
+        width: 100%;
+        /*  */
+        text-align: center;
+    }
+    nav.active ul {
+        display: block;
+    }
+    nav.active ul li a {
+        margin: 0;
+        /*  */
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    header .logo {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+        /*  */
+        width: 40px;
+        margin: 10px;
+        float: right;
+        /*  */
+        color: var(--white);
+        /*  */
+        font-size: 30px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .menu-toggle::before {
+        content: "\f0c9";
+        /*  */
+        line-height: 40px;
+        font-family: fontAwesome;
+        /*  */
+        transition: 0.1s;
+    }
+    .menu-toggle:hover {
+        transform: scale(1.1);
+    }
+    .menu-toggle.active::before {
+        content: "\f00d";
+    }
+    nav {
+        display: none;
+    }
+    nav.active {
+        display: block;
+        /*  */
+        width: 100%;
+        /*  */
+        text-align: center;
+    }
+    nav.active ul {
+        display: block;
+    }
+    nav.active ul li a {
+        margin: 0;
+        /*  */
+        font-size: 17px;
+    }
+}
+
+
+/* Responsive */

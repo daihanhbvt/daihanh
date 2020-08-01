@@ -1,0 +1,123 @@
+.home-page-container,
+.home-page {
+    position: relative;
+    /*  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*  */
+    width: 100%;
+    height: 520px;
+    /*  */
+    background-image: url("https://cdn.sstatic.net/img/home/illo-hero-full.svg?v=e2018a5f9272");
+    background-color: var(--blue);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    /*  */
+    animation: loadHome 2.5s ease-in-out;
+}
+
+.home-page {
+    opacity: 0;
+    /*  */
+    width: 100%;
+    height: 100%;
+    /*  */
+    background-color: var(--yellow);
+    /*  */
+    animation: loadHomePage 3s ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+    clip-path: polygon(0 0, 37% 0, 90% 100%, 0% 100%);
+}
+
+.home-page-container h1,
+.home-page h1 {
+    position: absolute;
+    left: 30px;
+    top: calc(50% - 100px);
+    /*  */
+    width: 100%;
+    /*  */
+    font-size: 70px;
+    font-weight: 700;
+    font-family: "Roboto Slab Bold", serif;
+    text-align: center;
+    /*  */
+    color: #000000;
+}
+
+.home-page-container>h1 {
+    color: #ffffff;
+}
+
+.home-page h1 span {
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif !important;
+}
+
+@keyframes loadHome {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes loadHomePage {
+    0% {
+        right: 100%;
+        /*  */
+        opacity: 1;
+    }
+    100% {
+        right: 0;
+        /*  */
+        display: flex;
+        /*  */
+        opacity: 1;
+    }
+}
+
+
+/* Response */
+
+@media only screen and (min-width: 768px) and (max-width: 912px) {
+    .home-page-container {
+        height: 375px;
+    }
+    .home-page-container h1,
+    .home-page h1 {
+        left: 20px;
+        top: calc(50% - 65px);
+        /*  */
+        font-size: 60px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .home-page-container {
+        height: 280px;
+    }
+    .home-page-container h1,
+    .home-page h1 {
+        left: 10px;
+        top: calc(45% - 25px);
+        /*  */
+        font-size: 50px;
+    }
+}
+
+@media only screen and (min-width: 240px) and (max-width: 575px) {
+    .home-page-container {
+        height: 210px;
+    }
+    .home-page-container h1,
+    .home-page h1 {
+        top: calc(42% - 25px);
+        left: 10px;
+        /*  */
+        font-size: 32px;
+    }
+}
